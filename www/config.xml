@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.developawesomeapps.studyapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>StudyApp</name>
+    <description>
+        Provides study motivation.
+    </description>
+    <author email="developawesomeapps@gmail.com">
+        Develop Awesome Apps
+    </author>
+    <feature name="http://api.phonegap.com/1.0/device" />
+    <access origin="http://127.0.0.1*" />
+</widget>

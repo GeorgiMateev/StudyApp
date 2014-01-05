@@ -11,19 +11,19 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            { pattern: 'app/bower_components/jquery/jquery.js', included: false },
-            { pattern: 'app/bower_components/angular/angular.js', included: false },
-            { pattern: 'app/bower_components/angular-mocks/angular-mocks.js', included: false },
+            { pattern: 'www/bower_components/jquery/jquery.js', included: false },
+            { pattern: 'www/bower_components/angular/angular.js', included: false },
+            { pattern: 'www/bower_components/angular-mocks/angular-mocks.js', included: false },
             
-            { pattern: 'app/scripts/*.js', included: false },
-            { pattern: 'app/scripts/**/*.js', included: false },
+            { pattern: 'www/scripts/*.js', included: false },
+            { pattern: 'www/scripts/**/*.js', included: false },
             { pattern: 'test/spec/**/*Spec.js', included: false },
 
             "test/spec/main.js"
         ],
 
         // list of files / patterns to exclude
-        exclude: ["app/scripts/main.js"],
+        exclude: ["www/scripts/main.js"],
 
         // web server port
         port: 8080,

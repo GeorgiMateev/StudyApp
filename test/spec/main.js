@@ -8,7 +8,7 @@ for (var file in window.__karma__.files) {
 }
 
 require.config({
-    baseUrl: "/base/app/scripts",
+    baseUrl: "/base/www/scripts",
 
     paths: {
         jquery: "../bower_components/jquery/jquery",
