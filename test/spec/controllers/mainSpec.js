@@ -1,7 +1,6 @@
 define(["ngMocks", "controllers/loader"], function () {
 
     describe('Controller: MainCtrl', function () {
-        debugger;
         // load the controller's module
         beforeEach(module('studyApp.controllers'));
 

@@ -7,8 +7,16 @@ define(["services/module", "services/everliveService"], function (services) {
     ArticlesService.prototype = {
         constructor: ArticlesService,
 
-        allArticles: function () {
-            return this.server.allArticles();
+        get: function () {
+            return this.server.getArticles();
+        },
+
+        getById: function (id) {
+            return this.server.getArticleById(id);
+        },
+
+        create: function (item) {
+            return this.server.createArticle(item);
         }
     }
 });

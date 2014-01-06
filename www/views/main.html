@@ -17,9 +17,10 @@
 </div>
 
 <div class="row marketing">
+    <a ng-href="#article">Say why</a>
     <ul>
         <li ng-repeat="item in items">
-            <h4>{{item.Title}}</h4>
+            <h4><a ng-href="#/article/{{item.Id}}">{{item.Title}}</a></h4>
             <h3>Rating {{item.Rating}}</h3>
             <p>{{item.Text}}</p>
         </li>
