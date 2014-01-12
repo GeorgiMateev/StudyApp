@@ -1,0 +1,8 @@
+<div ng-switch="view">
+    <div ng-switch-when="master" >
+        <div ng-include="templates.master" ng-controller="MasterCtrl"></div>
+    </div>
+    <div ng-switch-when="details" >
+        <div ng-include="templates.details" ng-controller="DetailsCtrl"></div>
+    </div>
+</div>

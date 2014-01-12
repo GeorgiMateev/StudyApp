@@ -4,50 +4,21 @@ define(["angular", "controllers/loader", "services/loader", "ngRoute"],
       .config(function ($routeProvider, $locationProvider) {
           $routeProvider
           .when('/', {
-              templateUrl: 'views/main.html',
-              controller: 'ListCtrl',
-              resolve: {
-                  items: function (ArticlesService) {
-                      return ArticlesService.get();
-                  }
-              }
-          })
-          .when('/article/:articleId', {
-              templateUrl: "views/article.html",
-              controller: "ItemCtrl",
-              resolve: {
-                  item: function (ArticlesService, $route) {
-                      var id = $route.current.params.articleId;
-                      return ArticlesService.getById(id);
-                  },
-                  options: function () {
+              reloadOnSearch: false,
+              templateUrl: "views/masterDetail.html",
+              controller: "MasterDetailsCtrl",
+              resolve: {                  
+                  templates: function () {
                       return {
-                          edit: false
+                          master: "views/master.html",
+                          details: "views/article.html"
                       }
                   },
                   modelService: function (ArticlesService) {
-                      return ArticlesService
+                      return ArticlesService;
                   }
-              }
-          })
-          .when("/article", {
-              templateUrl: "views/article.html",
-              controller: "ItemCtrl",
-              resolve: {
-                  item: function () {
-                      return {}
-                  },
-                  options: function () {
-                      return {
-                          edit: true
-                      }
-                  },
-                  modelService: function (ArticlesService) {
-                      return ArticlesService
-                  }
-              }
-          })
-          .otherwise({
+              }              
+          }).otherwise({
               redirectTo: '/'
           });
       });

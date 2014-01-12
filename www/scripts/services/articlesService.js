@@ -1,8 +1,10 @@
 define(["services/module", "services/everliveService"], function (services) {
-    services.service("ArticlesService", ["EverliveService", ArticlesService]);
+    services.service("ArticlesService", ["EverliveService", "$q", ArticlesService]);
 
-    function ArticlesService(server) {
+    function ArticlesService(server, $q) {
         this.server = server;
+        this.$q = $q;
+        this.cachedItem = null;
     }
     ArticlesService.prototype = {
         constructor: ArticlesService,
@@ -11,12 +13,24 @@ define(["services/module", "services/everliveService"], function (services) {
             return this.server.getArticles();
         },
 
-        getById: function (id) {
-            return this.server.getArticleById(id);
+        getById: function (id, fromCache) {
+            var delay = this.$q.defer();
+
+            if (fromCache && this.cachedItem && this.cachedItem.Id == id) {
+                delay.resolve(this.cachedItem);
+                return delay.promise;
+            }
+            else {
+                return this.server.getArticleById(id);
+            }
         },
 
         create: function (item) {
             return this.server.createArticle(item);
+        },
+
+        cacheItem: function (item) {
+            this.cachedItem = item;
         }
     }
 });
