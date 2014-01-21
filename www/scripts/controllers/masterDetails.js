@@ -1,6 +1,6 @@
 define(["controllers/module", "services/loader"], function (controllers) {
-    controllers.controller("MasterDetailsCtrl", ["$scope", "$location", "templates", "modelService",
-     function ($scope, $location, templates, modelService) {
+    controllers.controller("MasterDetailsCtrl", ["$scope", "$rootScope", "$location", "templates", "modelService",
+     function ($scope, $rootScope, $location, templates, modelService) {
          $scope.templates = templates;
          $scope.modelService = modelService;
 

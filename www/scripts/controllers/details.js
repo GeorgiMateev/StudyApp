@@ -1,6 +1,10 @@
-define(["controllers/module", "services/loader"], function (controllers) {
+define(["controllers/module", "services/loader", "directives/loader"], function (controllers) {
     controllers.controller("DetailsCtrl", ["$scope", "$location",
      function ($scope, $location) {
+         $scope.$watch("action", function (newValue, oldValue) {
+              $scope.$broadcast("changeAction", {action: newValue});
+         });
+
          $scope.create = function () {
              $scope.modelService.create($scope.item)
                  .then(function (data) {

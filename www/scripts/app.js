@@ -1,6 +1,6 @@
-define(["angular", "controllers/loader", "services/loader", "ngRoute"],
+define(["angular", "controllers/loader", "services/loader", "directives/loader", "ngRoute"],
  function (angular) {
-     var module = angular.module('studyApp', ['studyApp.controllers', 'studyApp.services', 'ngRoute'])
+     var module = angular.module('studyApp', ['studyApp.controllers', 'studyApp.services', 'studyApp.directives', 'ngRoute'])
       .config(function ($routeProvider, $locationProvider) {
           $routeProvider
           .when('/', {
@@ -17,7 +17,7 @@ define(["angular", "controllers/loader", "services/loader", "ngRoute"],
                   modelService: function (ArticlesService) {
                       return ArticlesService;
                   }
-              }              
+              }
           }).otherwise({
               redirectTo: '/'
           });
