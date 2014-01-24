@@ -1,6 +1,7 @@
 require.config({
     paths: {
         angular: "../bower_components/angular/angular",
+        uiRouter: "../vendor/angular-ui-router/angular-ui-router",
         ngRoute: "../bower_components/angular-route/angular-route",
         jquery: "../bower_components/jquery/jquery",
         bootstrap: "../bower_components/bootstrap/dist/js/bootstrap",
@@ -17,6 +18,9 @@ require.config({
             exports: "angular"
         },
         ngRoute: {
+            deps: ["angular"]
+        },
+        uiRouter: {
             deps: ["angular"]
         },
         underscore: {

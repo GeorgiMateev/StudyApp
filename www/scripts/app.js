@@ -1,26 +1,40 @@
-define(["angular", "controllers/loader", "services/loader", "directives/loader", "ngRoute"],
+define(["angular", "controllers/loader", "services/loader", "directives/loader", "ngRoute", "uiRouter"],
  function (angular) {
-     var module = angular.module('studyApp', ['studyApp.controllers', 'studyApp.services', 'studyApp.directives', 'ngRoute'])
-      .config(function ($routeProvider, $locationProvider) {
-          $routeProvider
-          .when('/', {
-              reloadOnSearch: false,
-              templateUrl: "views/masterDetail.html",
-              controller: "MasterDetailsCtrl",
-              resolve: {                  
-                  templates: function () {
-                      return {
-                          master: "views/master.html",
-                          details: "views/article.html"
-                      }
-                  },
+     var module = angular.module('studyApp', ['studyApp.controllers', 'studyApp.services', 'studyApp.directives', 'ngRoute', 'ui.router'])
+      .config(function ($stateProvider, $urlRouterProvider) {
+          $urlRouterProvider.otherwise("/");
+
+          $stateProvider
+          .state('articles', {
+              abstract: true,
+              template: '<ui-view/>',
+              resolve: {
                   modelService: function (ArticlesService) {
                       return ArticlesService;
                   }
               }
-          }).otherwise({
-              redirectTo: '/'
-          });
+          })
+          .state('articles.list', {
+              url: "/",
+              templateUrl: "views/master.html",
+              controller: "MasterCtrl"
+          })
+          .state('articles.details', {
+              url: "/:id",
+              templateUrl: "views/article.html",
+              controller: "DetailsCtrl",
+              data: {
+                  action: "details"
+              }
+          })
+          .state('articles.new', {
+              url: "/articles/new",
+              templateUrl: "views/article.html",
+              controller: "DetailsCtrl",
+              data: {
+                  action: "create"
+              }
+          })
       });
 
      return module;

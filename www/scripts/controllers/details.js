@@ -1,21 +1,30 @@
 define(["controllers/module", "services/loader", "directives/loader"], function (controllers) {
-    controllers.controller("DetailsCtrl", ["$scope", "$location",
-     function ($scope, $location) {
-         $scope.$watch("action", function (newValue, oldValue) {
-              $scope.$broadcast("changeAction", {action: newValue});
-         });
+    controllers.controller("DetailsCtrl", ["$scope", "$location", "$state", "$stateParams", "modelService",
+     function ($scope, $location, $state, $stateParams, modelService) {
+         var id = $stateParams.id;
+         var fromCache = true;
+
+         if (id) {
+             modelService.getById(id, fromCache)
+                .then(function (item) {
+                    $scope.item = item;
+                });
+         }
+         else {
+             $scope.item = {};
+         }
+
+         $scope.action = $state.current.data.action;
 
          $scope.create = function () {
-             $scope.modelService.create($scope.item)
+             modelService.create($scope.item)
                  .then(function (data) {
                      $scope.item.Id = data.Id;
                      $scope.item.CreatedAt = data.CreatedAt;
 
-                     $scope.modelService.cacheItem($scope.item);
+                     modelService.cacheItem($scope.item);
 
-                     $location.search("new", null);
-                     $location.search("id", data.Id);
-                     $location.replace();
+                     $state.go("articles.details", { id: $scope.item.Id }, { location: "replace" });
                  });
          };
      } ]);
