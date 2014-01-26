@@ -1,0 +1,8 @@
+<div ng-switch="fieldDisplay.action">
+    <div ng-switch-when="edit">
+        <button type="button" ng-click="save()">Save</button>
+    </div>
+    <div ng-switch-when="details">
+        <button type="button" ng-click="edit()">Edit</button>
+    </div>    
+</div>

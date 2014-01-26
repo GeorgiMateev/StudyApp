@@ -14,7 +14,8 @@ define(["controllers/module", "services/loader", "directives/loader"], function 
              $scope.item = {};
          }
 
-         $scope.action = $state.current.data.action;
+         $scope.modelService = modelService;
+         $scope.display = $state.current.data.display;
 
          $scope.create = function () {
              modelService.create($scope.item)

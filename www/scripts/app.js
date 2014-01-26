@@ -24,7 +24,9 @@ define(["angular", "controllers/loader", "services/loader", "directives/loader",
               templateUrl: "views/article.html",
               controller: "DetailsCtrl",
               data: {
-                  action: "details"
+                  display: {
+                      action: "details"
+                  }                  
               }
           })
           .state('articles.new', {
@@ -32,7 +34,9 @@ define(["angular", "controllers/loader", "services/loader", "directives/loader",
               templateUrl: "views/article.html",
               controller: "DetailsCtrl",
               data: {
-                  action: "create"
+                  display: {
+                      action: "edit"
+                  }
               }
           })
       });

@@ -1,6 +1,9 @@
 <p>Title</p>
-<sa-input-text-field ></sa-input-text-field>
+<sa-read-write-field display="display" item="item" field-name="Title" model-service="modelService">
+    <sa-input-text-field></sa-input-text-field>
+</sa-read-write-field>
+
 <p>Text</p>
 <textarea ng-model="item.Text"></textarea>
 
-<button type="button" ng-click="create()" ng-show="action==='create'">Save</button>
+<button type="button" ng-click="create()" ng-show="display.action==='edit'">Save</button>

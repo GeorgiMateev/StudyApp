@@ -31,6 +31,10 @@ define(["services/module", "services/everliveService"], function (services) {
 
         cacheItem: function (item) {
             this.cachedItem = item;
+        },
+
+        update: function (value) {
+            return this.server.updateArticle(value);
         }
     }
 });

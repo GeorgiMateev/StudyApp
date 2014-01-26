@@ -58,6 +58,30 @@ define(["everlive", "services/module"], function (Everlive, services) {
 
 
             return delay.promise;
+        },
+
+        updateArticle: function (value) {
+            var delay = this.$q.defer();
+            var self = this;
+            this.el.Users.login('admin',
+                'admin@2',
+                function (data) {
+                    self.el.data("Article")
+                        .updateSingle(value,
+                            function (data) {
+                                delay.resolve(data.result);
+                            },
+                            function (error) {
+                                delay.reject(JSON.stringify(error));
+                            });
+                },
+                function (error) {
+                    alert(JSON.stringify(error));
+                });
+
+
+
+            return delay.promise;
         }
     }
 });
