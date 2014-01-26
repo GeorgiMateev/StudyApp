@@ -1,8 +1,8 @@
-<div ng-switch="fieldDisplay.action">
+<div ng-switch="fieldDisplay.mode">
     <div ng-switch-when="edit">
         <input type="text" ng-model="item[fieldName]" />
     </div>
-    <div ng-switch-when="details">
+    <div ng-switch-when="view">
         <p>{{item[fieldName]}}</p>
     </div>
 </div>

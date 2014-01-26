@@ -35,7 +35,7 @@ define(["angular", "controllers/loader", "services/loader", "directives/loader",
               controller: "DetailsCtrl",
               data: {
                   display: {
-                      action: "edit"
+                      action: "create"
                   }
               }
           })

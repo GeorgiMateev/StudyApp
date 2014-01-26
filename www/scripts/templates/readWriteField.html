@@ -1,8 +1,11 @@
-<div ng-switch="fieldDisplay.action">
+<div ng-switch="fieldDisplay.mode">
     <div ng-switch-when="edit">
-        <button type="button" ng-click="save()">Save</button>
+        <div ng-show="fieldDisplay.action !== 'create'">
+            <button type="button" ng-click="save()">Save</button>
+            <button type="button" ng-click="cancel()">Cancel</button>
+        </div>
     </div>
-    <div ng-switch-when="details">
+    <div ng-switch-when="view">
         <button type="button" ng-click="edit()">Edit</button>
-    </div>    
+    </div>
 </div>
