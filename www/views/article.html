@@ -4,6 +4,8 @@
 </sa-read-write-field>
 
 <p>Text</p>
-<textarea ng-model="item.Text"></textarea>
+<sa-read-write-field display="display" item="item" field-name="Text" model-service="modelService">
+    <sa-rich-text-field></sa-rich-text-field>
+</sa-read-write-field>
 
 <button type="button" ng-click="create()" ng-show="display.action==='edit' || display.action==='create'">Save</button>

@@ -1,0 +1,8 @@
+<div ng-switch="fieldDisplay.mode">
+    <div ng-switch-when="edit">
+        <textarea sa-rich-text-editor ng-model="item[fieldName]" />
+    </div>
+    <div ng-switch-when="view">
+        <p ng-bind-html="item[fieldName]"></p>
+    </div>
+</div>
