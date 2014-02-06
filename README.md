@@ -1,6 +1,7 @@
 StudyApp
 ========
 To configure the web app on your dev machine follow these steps:
+
 1. Install node.js - it is needed only for local development, there are no run time node dependences
 2. Install git - make sure that "git" command is available in the command prompt/shell, if it is not, add it into the PATH variable. Another options is to run the following commands in the git bash.
 3. Clone the repo and pull the code
