@@ -1,5 +1,6 @@
 define(["everlive", "services/module"], function (Everlive, services) {
-    services.service("SecurityService", ["EverliveService", "$cookieStore", "$q", "FacebookService", SecurityService]);
+    //services.service("SecurityService", ["EverliveService", "$cookieStore", "$q", "FacebookService", SecurityService]);
+     services.service("SecurityService", ["EverliveService", "$cookieStore", "$q", SecurityService]);
 
     function SecurityService(server, $cookieStore, $q, FacebookService) {
         this.server = server;
