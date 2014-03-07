@@ -117,6 +117,20 @@ define(["everlive", "services/module"], function (Everlive, services) {
         logOut: function () {
             //create new everlive instance without authentication token
             this.initialize();
+        },
+
+        register: function (username, password, fields) {
+            var delay = this.$q.defer();
+            var self = this;
+
+            this.el.Users.register(username, password, fields,
+                function (data) {
+                    delay.resolve(data.result);
+                }, function (error) {
+                    delay.reject(error.message);
+                });
+
+            return delay.promise;
         }
     }
 });

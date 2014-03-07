@@ -13,7 +13,8 @@ require.config({
         reqwest: "../vendor/everlive/src/reqwest",
         jstz: "../vendor/everlive/src/jstz",
         everlive: "../vendor/everlive/src/everlive",
-        tinyMce: "../vendor/tinymce/tinymce.min"
+        tinyMce: "../vendor/tinymce/tinymce.min",
+        facebook: "//connect.facebook.net/en_US/all"
     },
     shim: {
         angular: {
@@ -33,7 +34,11 @@ require.config({
             deps: ["angular"]
         },
         underscore: {
-          exports: "_"
+            exports: "_"
+        },
+
+        facebook: {
+            exports: "FB"
         }
     }
 });

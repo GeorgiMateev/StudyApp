@@ -1,9 +1,10 @@
 define(["everlive", "services/module"], function (Everlive, services) {
-    services.service("SecurityService", ["EverliveService", "$cookieStore", "$q", SecurityService]);
+    services.service("SecurityService", ["EverliveService", "$cookieStore", "$q", "FacebookService", SecurityService]);
 
-    function SecurityService(server, $cookieStore, $q) {
+    function SecurityService(server, $cookieStore, $q, FacebookService) {
         this.server = server;
         this.$cookieStore = $cookieStore;
+        this.facebook = FacebookService;
         this.currentUser = null;
         this.initialize();
     }
@@ -69,6 +70,18 @@ define(["everlive", "services/module"], function (Everlive, services) {
             this.$cookieStore.remove("studyApp.token");
             this.server.logOut();
             this.currentUser = null;
+        },
+
+        register: function (username, password, fields) {
+            var self = this;
+            return this.server.register(username, password, fields)
+                .then(function (token) {
+                    return self.login(username, password);
+                })
+        },
+
+        loginWithFacebook: function () {
+            this.facebook.login();
         }
     }
 });

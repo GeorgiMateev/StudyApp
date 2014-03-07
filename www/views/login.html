@@ -1,3 +1,5 @@
+<button type=button ng-click="facebookLogin()">Facebook</button>
+
 <h1>Login using Study app account</h1>
 <b>Username: </b><input type="text" ng-model="saUsername"/></br>
 <b>Password: </b><input type="password" ng-model="saPassword"/>
@@ -5,3 +7,15 @@
 <p ng-show="error">{{errorMessage}}</p>
 
 <button type="button" ng-click="login()">Log in</button>
+
+<p>Or</p>
+
+<h2>Create new account</h2>
+<b>Username: </b><input type="text" ng-model="saNewUsername"/></br>
+<b>Email: </b><input type="text" ng-model="saNewEmail"/></br>
+<b>Password: </b><input type="password" ng-model="saNewPassword1"/>
+<b>Repeat password: </b><input type="password" ng-model="saNewPassword2"/>
+
+<p ng-show="registerError">{{errorMessage}}</p>
+
+<button type="button" ng-click="register()">Register</button>
